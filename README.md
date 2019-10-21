@@ -1,4 +1,4 @@
-# ria-final-project
+# RIA Final Project Description
 Final project for Rich Internet Applications 1 regarding knowledge of VueJS
 
 # Project Requirements
