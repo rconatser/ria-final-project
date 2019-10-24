@@ -18,3 +18,9 @@ This is your Final Project to demonstrate your ability to build a web applicatio
 - [ ] Structure, document, and deploy your final project code according to common industry practices.
 
 You will submit the GitHub URL for your project AND the URL of where your project is deployed online.  The ReadMe file in your GitHub repo will list where in your code each of the required features listed above can be found.
+
+# GitHub URL
+https://github.com/rconatser/ria-final-project.git
+
+# Netlify URL (Where Deployed Online)
+https://www.netlify.com/
