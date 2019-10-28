@@ -2,25 +2,28 @@
   <v-app>
     <app-header />
     <v-content>
-        <about-us />
-        <servers id="servers" class="pb-12" />
+        <router-view />
     </v-content>
     <app-footer />
   </v-app>
 </template>
 
 <script>
-import Servers from './components/server/Servers';
 import AppHeader from './components/shared/Header';
 import AppFooter from './components/shared/Footer';
-import AboutUs from './components/shared/AboutUs';
+// import AboutUs from './components/pages/AboutUs';
+// import OurMenu from './components/pages/OurMenu';
+// import Order from './components/pages/Order';
+// import ContactUs from './components/pages/ContactUs';
 
 export default {
  components: {
    'app-header': AppHeader,
-   'servers': Servers,
    'app-footer': AppFooter,
-   'about-us': AboutUs
+  //  'about-us': AboutUs,
+  //  'our-menu': OurMenu,
+  //  'order': Order,
+  //  'contact': ContactUs
  } 
 }
 </script>

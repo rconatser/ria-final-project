@@ -9,7 +9,7 @@
         tile
       >
         <v-card-title class="bg-gradient">
-          <span class="subheading mobile-center">Follow Our Sponsors on Social Media!</span>
+          <span class="mobile-center">Follow Us on Social Media!</span>
   
           <div class="flex-grow-1"></div>
   
@@ -41,17 +41,17 @@ export default {
       facebook: { // value
         value: 'Facebook',
         icon: 'mdi-facebook', // icon
-        link: 'https://www.facebook.com/dogofworld/' // link
+        link: 'https://www.facebook.com/' // link
       },
       instagram: { // value
         value: 'Instagram',
         icon: 'mdi-instagram', // icon
-        link: 'https://www.instagram.com/happydogsworld/' // link
+        link: 'https://www.instagram.com/' // link
       },
       twitter: { // value
         value: 'Twitter',
         icon: 'mdi-twitter', // icon
-        link: 'https://twitter.com/HappyDogIsland1' // link
+        link: 'https://twitter.com/' // link
       }
     }
 })
@@ -70,8 +70,7 @@ export default {
   }
 
   .bg-gradient {
-    box-shadow: 0 4px 4px rgba(0,0,0,0.35);
-    background: linear-gradient(to top right, #0F677E, #90B0AF);
+    background-color: #666;
   }
 
   .mobile-center {
