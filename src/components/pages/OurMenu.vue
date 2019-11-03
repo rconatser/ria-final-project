@@ -5,7 +5,7 @@
         </v-parallax>
         <div class="text-container">
             <h2>Text goes here</h2>
-            <p>Text</p>
+            <p>Where possible, our food items are locally and organically sourced.</p>
         </div>
     </v-content>
 </template>

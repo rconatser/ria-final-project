@@ -17,16 +17,16 @@
             <v-list nav dense>
                 <v-list-item-group active-class="blue-grey--text" v-model="group">
                     <v-list-item>
-                        <router-link to="/home">Home</router-link>
+                        <router-link v-ripple to="/home">Home</router-link>
                     </v-list-item>
                     <v-list-item>
-                        <router-link to="/our-menu">Our Menu</router-link>
+                        <router-link v-ripple to="/our-menu">Our Menu</router-link>
                     </v-list-item>
                     <v-list-item>
-                        <router-link to="/order">Order</router-link>
+                        <router-link v-ripple to="/order">Order</router-link>
                     </v-list-item>
                     <v-list-item>
-                        <router-link to="/contact">Contact Us</router-link>
+                        <router-link v-ripple to="/contact">Contact Us</router-link>
                     </v-list-item>
                 </v-list-item-group>
             </v-list>

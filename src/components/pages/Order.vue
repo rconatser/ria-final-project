@@ -4,8 +4,8 @@
           <h1 class="title-text"><span class="font-weight-bold">Order </span>Here</h1>
         </v-parallax>
         <div class="text-container">
-            <h2>Text goes here</h2>
-            <p>Text</p>
+            <h2>Make Your Ramen</h2>
+            <p>Select from the options below to create your custom ramen masterpiece!</p>
         </div>
     </v-content>
 </template>
