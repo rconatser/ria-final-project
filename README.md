@@ -5,11 +5,15 @@ Final project for Rich Internet Applications 1 regarding knowledge of VueJS
 This is your Final Project to demonstrate your ability to build a web application using the VueJS front-end framework.  Your final project code will demonstrate that you are able to:
 
 - [ ] Effectively use conditional logic and JavaScript array methods to render large lists.
+<<<<<<< HEAD
 - [x] Encapsulate your code as VueJS single-file components.
+=======
+- [x] Encapsulate your code as VueJS single-file components.
+>>>>>>> 1993b94c25f7f62963483a093e98aeb9d7c77125
 - [x] Work with the Vue-CLI to create and manage your project within a real development toolset.
 - [x] Properly use Git for your source version control with an established record of at least 4 days of commits each week from October 15th through December 6th.
 - [ ] Allow communication between components using props, custom events, or local store.
-- [ ] Present a form for user input that provides useful form validation and feedback.
+- [x] Present a form for user input that provides useful form validation and feedback.
 - [ ] Create a custom directive and use it on at least one of your components.
 - [ ] Use a mix of animations and transitions to enhance some aspects of your project.
 - [ ] Connect to a server using HTTP and display retrieved data (use vue-resource or Axios).
