@@ -1,6 +1,6 @@
 <template>
     <v-content class="pt-0">
-        <v-parallax class="title-container" height="700" src="../../assets/ramen-header-3.jpg">
+        <v-parallax class="title-container" height="500" src="../../assets/food-items/tonkotsu-ramen.jpg">
           <h1 class="title-text"><span class="font-weight-bold">Our </span>Menu</h1>
         </v-parallax>
         <div class="text-container">

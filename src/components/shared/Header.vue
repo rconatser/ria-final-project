@@ -20,7 +20,7 @@
                         <router-link v-ripple to="/home">Home</router-link>
                     </v-list-item>
                     <v-list-item>
-                        <router-link v-ripple to="/our-menu">Our Menu</router-link>
+                        <router-link v-ripple to="/menu">Our Menu</router-link>
                     </v-list-item>
                     <v-list-item>
                         <router-link v-ripple to="/order">Order</router-link>

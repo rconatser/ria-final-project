@@ -1,6 +1,6 @@
 <template>
     <v-content class="pt-0">
-        <v-parallax class="title-container" height="700" src="../../assets/ramen-header-1.jpg">
+        <v-parallax class="title-container" height="500" src="../../assets/ramen-header-3.jpg">
           <h1 class="title-text"><span class="font-weight-bold">Order </span>Here</h1>
         </v-parallax>
         <div class="text-container">
