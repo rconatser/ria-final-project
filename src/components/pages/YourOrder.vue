@@ -8,6 +8,7 @@
     <div class="text-container">
       <h2>Your order has been submitted.</h2>
       <p>Please review your order below and let us know if any information is incorrect.</p>
+      <p class="pt-4"><em>Form results will go here, along with printed nutrition information about selected items</em></p>
     </div>
   </v-content>
 </template>
@@ -21,6 +22,7 @@ div.text-container {
   min-width: 360px;
   max-width: 1200px;
   margin: 20px auto;
+  padding: 40px 20px;
 }
 
 h1.title-text {

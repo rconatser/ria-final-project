@@ -33,6 +33,7 @@ export default {
     min-width: 360px;
     max-width: 1200px;
     margin: 20px auto;
+    padding: 40px 20px;
   }
 
   h1.title-text {

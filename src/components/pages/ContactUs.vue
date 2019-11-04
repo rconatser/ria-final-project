@@ -4,8 +4,9 @@
           <h1 class="title-text"><span class="font-weight-bold">Contact </span>Us</h1>
         </v-parallax>
         <div class="text-container">
-            <h2>Text goes here</h2>
-            <p>Text</p>
+            <h2>Have a question or concern?</h2>
+            <p>Call or email us today!</p>
+            <p><em>Mock phone number and email will go here, along with 'google maps' of location.</em></p>
         </div>
     </v-content>
 </template>
@@ -21,6 +22,7 @@ export default {
     min-width: 360px;
     max-width: 1200px;
     margin: 20px auto;
+    padding: 40px 20px;
   }
 
   h1.title-text {

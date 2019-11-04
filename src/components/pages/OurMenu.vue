@@ -4,8 +4,9 @@
           <h1 class="title-text"><span class="font-weight-bold">Our </span>Menu</h1>
         </v-parallax>
         <div class="text-container">
-            <h2>Text goes here</h2>
+            <h2>Our Food</h2>
             <p>Where possible, our food items are locally and organically sourced.</p>
+            <p><em>List of all food items with their images (See 'Order' page), and when user selects one it will open a lightbox with nutrition information about that item.</em></p>
         </div>
     </v-content>
 </template>
@@ -21,6 +22,7 @@ export default {
     min-width: 360px;
     max-width: 1200px;
     margin: 20px auto;
+    padding: 40px 20px;
   }
 
   h1.title-text {
