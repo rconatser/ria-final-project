@@ -8,12 +8,30 @@
             <p>Where possible, our food items are locally and organically sourced.</p>
             <p><em>List of all food items with their images (See 'Order' page), and when user selects one it will open a lightbox with nutrition information about that item.</em></p>
         </div>
+        <div class="text-container">
+          <p>{{ data }}</p>
+        </div>
     </v-content>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      nutrition: []
+    }
+  },
+methods: {
+  getNutrition() {
+    this.$http.get('https://ramen-nutrition.firebaseio.com').then(response => {
+      this.nutrition = response.body;
+    }, response => {
+      //errors
+      console.log(data);
+      this.catch(error => console.error(error));
+    });
+  }
+}
 }
 </script>
 
