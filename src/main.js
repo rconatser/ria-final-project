@@ -4,6 +4,8 @@ import VueResource from 'vue-resource';
 import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router';
 import Routes from './routes';
+import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
+
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
