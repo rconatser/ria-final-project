@@ -1,3 +1,9 @@
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.11/vue.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+-->
+
 <template>
     <v-content class="pt-0">
         <v-parallax class="title-container" height="500" src="../../assets/food-items/tonkotsu-ramen.jpg">
@@ -9,29 +15,32 @@
             <p><em>List of all food items with their images (See 'Order' page), and when user selects one it will open a lightbox with nutrition information about that item.</em></p>
         </div>
         <div class="text-container">
-          <p>{{ data }}</p>
+          <p>{{ getNutrition() }}</p>
         </div>
     </v-content>
 </template>
 
 <script>
-export default {
+import axios from 'axios'
+
+export default {  
   data() {
     return {
-      nutrition: []
+      info: [],
     }
   },
-methods: {
-  getNutrition() {
-    this.$http.get('https://ramen-nutrition.firebaseio.com').then(response => {
-      this.nutrition = response.body;
-    }, response => {
-      //errors
-      console.log(data);
-      this.catch(error => console.error(error));
-    });
+  methods: {
+    getNutrition() {
+      axios.get('https://ramen-nutrition.firebaseio.com/')
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(error => console.error(error))
+    }
   }
-}
+  // web api key: AIzaSyBf5zqvGanW1rwGjF7YYDcVjbmmROujSZM
+  // app ID: 1:599047285369:web:83439892f3883d70d8c2a8
+  // public facing name: project-599047285369
 }
 </script>
 
