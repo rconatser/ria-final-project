@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     getNutrition() {
-      axios.get('https://ramen-nutrition.firebaseio.com/')
+      axios.get('https://ramen-nutrition.firebaseio.com/project-599047285369.json')
       .then(response => {
         console.log(response.data)
       })

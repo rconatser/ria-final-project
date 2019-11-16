@@ -10,11 +10,20 @@
       <p>Please review your order below and let us know if any information is incorrect.</p>
       <p class="pt-4"><em>Form results will go here, along with printed nutrition information about selected items</em></p>
     </div>
+    <div id="results" class="text-container">
+    <h2>Your Selections</h2>
+    
+    </div>
   </v-content>
 </template>
 
 <script>
-export default {};
+// import formInfo from './Order';
+
+export default {
+
+
+};
 </script>
 
 <style scoped>

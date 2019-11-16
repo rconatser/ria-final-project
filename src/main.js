@@ -23,16 +23,15 @@ new Vue({
 }).$mount('#app')
 
 // Your web app's Firebase configuration
-// var firebaseConfig = {
-//   apiKey: "AIzaSyBf5zqvGanW1rwGjF7YYDcVjbmmROujSZM",
-//   authDomain: "ramen-nutrition.firebaseapp.com",
-//   databaseURL: "https://ramen-nutrition.firebaseio.com",
-//   projectId: "ramen-nutrition",
-//   storageBucket: "ramen-nutrition.appspot.com",
-//   messagingSenderId: "599047285369",
-//   appId: "1:599047285369:web:83439892f3883d70d8c2a8",
-//   measurementId: "G-YCKD8GRL4Y"
-// };
+var firebaseConfig = {
+  apiKey: "AIzaSyBf5zqvGanW1rwGjF7YYDcVjbmmROujSZM",
+  authDomain: "ramen-nutrition.firebaseapp.com",
+  databaseURL: "https://ramen-nutrition.firebaseio.com",
+  projectId: "ramen-nutrition",
+  storageBucket: "ramen-nutrition.appspot.com",
+  messagingSenderId: "599047285369",
+  appId: "1:599047285369:web:83439892f3883d70d8c2a8",
+  measurementId: "G-YCKD8GRL4Y"
+};
 // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+firebase.initializeApp(firebaseConfig);
