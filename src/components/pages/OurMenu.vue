@@ -15,32 +15,40 @@
             <p><em>List of all food items with their images (See 'Order' page), and when user selects one it will open a lightbox with nutrition information about that item.</em></p>
         </div>
         <div class="text-container">
-          <p>{{ getNutrition() }}</p>
+          <p>{{ ing }}</p>
         </div>
     </v-content>
 </template>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {  
   data() {
     return {
-      info: [],
+      ing: []
     }
   },
-  methods: {
-    getNutrition() {
-      axios.get('https://ramen-nutrition.firebaseio.com/project-599047285369.json')
-      .then(response => {
-        console.log(response.data)
+  created() {
+    axios.get('https://ramen-ingredients.firebaseio.com/ingredients.json')
+      .then(res => {
+        console.log(res)
+        const data = res.data
+        const info = [];
+        for (let item in data) {
+          info.push(data[item])
+        }
+        console.log(info);
+        this.ing = info[0-23].ing;
       })
-      .catch(error => console.error(error))
-    }
+      .catch(error => console.log(error))
   }
-  // web api key: AIzaSyBf5zqvGanW1rwGjF7YYDcVjbmmROujSZM
-  // app ID: 1:599047285369:web:83439892f3883d70d8c2a8
-  // public facing name: project-599047285369
 }
 </script>
 
