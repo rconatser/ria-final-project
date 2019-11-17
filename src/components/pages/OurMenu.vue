@@ -14,8 +14,20 @@
             <p>Where possible, our food items are locally and organically sourced.</p>
             <p><em>List of all food items with their images (See 'Order' page), and when user selects one it will open a lightbox with nutrition information about that item.</em></p>
         </div>
+        <div class="section grey lighten-3">
         <div class="text-container">
-          <p>{{ ing }}</p>
+          <h2 class="text-center">Our Ingredients and their Nutrition Information</h2>
+          <ul>
+            <li v-for="ingredient in ingredients" :key="ingredient"><span class="headline condensed light">{{ ingredient.key }}</span> <span class="items">
+                <span>{{ ingredient.calories }} Calories</span>
+                <span>{{ ingredient.carbs }}g Carbs</span>
+                <span>{{ ingredient.fat }}g Fat</span>
+                <span>{{ ingredient.protein }}g Protein</span>
+                <span>{{ ingredient.sodium }}mg Sodium</span>
+            </span>
+            </li>
+          </ul>
+        </div>
         </div>
     </v-content>
 </template>
@@ -32,22 +44,19 @@ import axios from 'axios';
 export default {  
   data() {
     return {
-      ing: []
+      ingredients: []
     }
   },
   created() {
     axios.get('https://ramen-ingredients.firebaseio.com/ingredients.json')
-      .then(res => {
-        console.log(res)
-        const data = res.data
-        const info = [];
-        for (let item in data) {
-          info.push(data[item])
-        }
-        console.log(info);
-        this.ing = info[0-23].ing;
-      })
-      .catch(error => console.log(error))
+    // Prof Thor Anderson Suggestion:
+    .then(response => {
+        const allIngredients = response.data
+        const objectsToArray = Object.entries(allIngredients).map(e => Object.assign(e[1], {key: e[0]}),
+        )
+        this.ingredients = objectsToArray;
+    })
+    .catch(error => console.error(error))
   }
 }
 </script>
@@ -66,6 +75,16 @@ export default {
     font-weight: 300;
     font-size: 4rem;
     margin: 0 auto;
+  }
+
+  ul li {
+    display: inline-block;
+    padding: 20px;
+    width: 25%;
+  }
+
+  ul li span.items span {
+    display: block;
   }
   
 </style>
