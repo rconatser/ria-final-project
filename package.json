@@ -31,6 +31,7 @@
     "file-loader": "^4.3.0",
     "sass": "^1.17.4",
     "sass-loader": "^7.1.0",
+    "url-loader": "^2.3.0",
     "vue-cli-plugin-vuetify": "^0.6.3",
     "vue-template-compiler": "^2.6.10",
     "vuetify-loader": "^1.2.2",

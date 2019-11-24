@@ -18,18 +18,27 @@
         <div class="text-container">
           <h2 class="text-center">Our Ingredients and their Nutrition Information</h2>
           <ul>
-            <li v-for="ingredient in ingredients" :key="ingredient" >
-                <img :src="'../../assets/food-items/' + ingredient.image" :alt="'Image of ' + ingredient.key" height="100px" width="100px" />
-              <span class="headline condensed light">{{ ingredient.key }}</span> <span class="items">
-                <span>{{ ingredient.calories }} Calories</span>
-                <span>{{ ingredient.carbs }}g Carbs</span>
-                <span>{{ ingredient.fat }}g Fat</span>
-                <span>{{ ingredient.protein }}g Protein</span>
-                <span>{{ ingredient.sodium }}mg Sodium</span>
-            </span>
+            <li v-for="ingredient in ingredients" :key="ingredient">
+              <!-- <img :src="ingredient.image" :alt="'Image of ' + ingredient.key" height="100px" width="100px" /> -->
+              <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flip-card">
+                <div class="card-front">
+                  <span class="headline condensed light">{{ ingredient.key }}</span>
+                </div>
+                <div class="card-back">
+                  <span class="items">
+                    <span class="item">{{ ingredient.Calories }} Calories</span>
+                    <span class="item">{{ ingredient.Carbs }}g Carbs</span>
+                    <span class="item">{{ ingredient.Fat }}g Fat</span>
+                    <span class="item">{{ ingredient.Protein }}g Protein</span>
+                    <span class="item">{{ ingredient.Sodium }}mg Sodium</span>
+                  </span>
+                </div>
+              </div>
+              </div>
             </li>
           </ul>
-        </div>
+          </div>
         </div>
     </v-content>
 </template>
@@ -83,16 +92,83 @@ export default {
   ul li {
     display: inline-block;
     padding: 20px;
-    width: 25%;
+    width: 100%;
   }
 
   ul li span.items span {
     display: block;
   }
-  
-  ul li img {
-    display: block;
-    height: 100px;
-    width: 100px;
+
+  @media only screen and (min-width: 756px) {
+    ul li {
+    width: 50%;
   }
+  }
+
+   @media only screen and (min-width: 1200px) {
+    ul li {
+    width: 25%;
+  }
+  }
+
+  /*- Flip Cards -*/
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+  margin-top: 40px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flip-card, .flip-container.hover .flip-card {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .card-front, .card-back {
+	width: 100%;
+  height: 200px;
+}
+
+/* flip speed goes here */
+.flip-card {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide card-back of pane during swap */
+.card-front, .card-back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+  box-shadow: 0 0 4px rgba(0,0,0,.5);
+}
+
+/* card-front pane, placed above card-back */
+.card-front {
+	z-index: 2;
+  background-color: goldenrod;
+  color: white;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+  text-align: center;
+  padding-top: 80px;
+}
+
+/* card-back, initially hidden pane */
+.card-back {
+	transform: rotateY(180deg);
+  background-color: white;
+  padding: 15px 0;
+}
+
+.card-back span.item {
+  padding: 5px 10px;
+}
+
+.card-back span.item:nth-child(odd) {
+  background-color: rgb(238, 238, 238);
+}
+
 </style>
