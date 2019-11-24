@@ -23,7 +23,9 @@
               <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                 <div class="flip-card">
                 <div class="card-front">
+                  <div class="overlay">
                   <span class="headline condensed light">{{ ingredient.key }}</span>
+                </div>
                 </div>
                 <div class="card-back">
                   <span class="items">
@@ -48,6 +50,9 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+<script>
+document.getElementsByClassName("card-front").includes("Beef").style.backgroundImage = "url('../../assets/food-items/beef-broth.jpg')";
+</script>
 
 <script>
 import axios from 'axios';
@@ -153,6 +158,14 @@ export default {
 	/* for firefox 31 */
 	transform: rotateY(0deg);
   text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  background-color: rgba(0,0,0,.7);
+  height: 100%;
+  width: 100%;
   padding-top: 80px;
 }
 
@@ -170,5 +183,80 @@ export default {
 .card-back span.item:nth-child(odd) {
   background-color: rgb(238, 238, 238);
 }
+
+/* Various BG Images for Card List Items */
+li:nth-child(1) .card-front {
+  background-image: url('../../assets/food-items/beef-broth.jpg');
+}
+li:nth-child(2) .card-front {
+  background-image: url('../../assets/food-items/broccoli.jpg');
+}
+li:nth-child(3) .card-front {
+  background-image: url('../../assets/food-items/carrot.jpg');
+}
+li:nth-child(4) .card-front {
+  background-image: url('../../assets/food-items/chasu.jpg');
+}
+li:nth-child(5) .card-front {
+  background-image: url('../../assets/food-items/chicken.jpg');
+}
+li:nth-child(6) .card-front {
+  background-image: url('../../assets/food-items/chicken-broth.jpg');
+}
+li:nth-child(7) .card-front {
+  background-image: url('../../assets/food-items/cilantro.jpg');
+}
+li:nth-child(8) .card-front {
+  background-image: url('../../assets/food-items/corn.jpg');
+}
+li:nth-child(9) .card-front {
+  background-image: url('../../assets/food-items/green-onion.jpg');
+}
+li:nth-child(10) .card-front {
+  background-image: url('../../assets/food-items/lime.jpg');
+}
+li:nth-child(11) .card-front {
+  background-image: url('../../assets/food-items/miso-broth.jpeg');
+}
+li:nth-child(12) .card-front {
+  background-image: url('../../assets/food-items/mushrooms.jpg');
+}
+li:nth-child(13) .card-front {
+  background-image: url('../../assets/food-items/naruto.jpg');
+}
+li:nth-child(14) .card-front {
+  background-image: url('../../assets/food-items/nori.jpg');
+}
+li:nth-child(15) .card-front {
+  background-image: url('../../assets/food-items/onion.jpg');
+}
+li:nth-child(16) .card-front {
+  background-image: url('../../assets/food-items/ramen-noodles.jpg');
+}
+li:nth-child(17) .card-front {
+  background-image: url('../../assets/food-items/red-pepper.jpg');
+}
+li:nth-child(18) .card-front {
+  background-image: url('../../assets/food-items/seseme-seeds.jpg');
+}
+li:nth-child(19) .card-front {
+  background-image: url('../../assets/food-items/shio-broth.jpg');
+}
+li:nth-child(20) .card-front {
+  background-image: url('../../assets/food-items/shoyu-broth.jpg');
+}
+li:nth-child(21) .card-front {
+  background-image: url('../../assets/food-items/shrimp.jpg');
+}
+li:nth-child(22) .card-front {
+  background-image: url('../../assets/food-items/egg.jpg');
+}
+li:nth-child(23) .card-front {
+  background-image: url('../../assets/food-items/beef.jpg');
+}
+li:nth-child(24) .card-front {
+  background-image: url('../../assets/food-items/tonkotsu-broth.jpg');
+}
+
 
 </style>
