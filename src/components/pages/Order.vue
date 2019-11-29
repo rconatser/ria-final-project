@@ -183,18 +183,15 @@
 
 <script>
 export default {
-  data() {
-
-      return {
-        pickedBroth: '',
-        pickedMeat: '',
-        checkedToppings: [],
-        errors: []
-      }
-  },
+ el: '#order',
+data() {
+  pickedBroth = '',
+  pickedMeat = '',
+  checkedToppings = []
+ },
   methods: {
     orderValues() {
-      this.$router.push("/review?" + this.pickedBroth + this.pickedMeat + this.checkedToppings);
+      this.$router.push("/review");
     }
   }
 };
