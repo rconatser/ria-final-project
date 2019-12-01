@@ -18,6 +18,7 @@
           <v-icon v-else>mdi-comment-question</v-icon>
         </v-btn>
       </template>
+      <router-link to="/contact" tag="v-btn">
       <v-btn
         v-pulse
         fab
@@ -27,6 +28,8 @@
       >
         <v-icon>mdi-phone</v-icon> <!-- Link to Contact Page (v-pulse is custom directive) -->
       </v-btn>
+      </router-link>
+      <router-link to="/menu" tag="v-btn">
       <v-btn
         v-pulse
         fab
@@ -36,6 +39,8 @@
       >
         <v-icon>mdi-book-open-page-variant</v-icon> <!-- Link to Ingredients Page (v-pulse is custom directive) -->
       </v-btn>
+      </router-link>
+      <router-link to="/order" tag="v-btn">
       <v-btn
         v-pulse 
         fab
@@ -45,6 +50,7 @@
       >
         <v-icon>mdi-noodles</v-icon> <!-- Link to Order Page (v-pulse is custom directive) -->
       </v-btn>
+      </router-link>
     </v-speed-dial>
 </template>
 

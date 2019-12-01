@@ -10,9 +10,9 @@ This is your Final Project to demonstrate your ability to build a web applicatio
 - [x] Properly use Git for your source version control with an established record of at least 4 days of commits each week from October 15th through December 6th.
 - [ ] Allow communication between components using props, custom events, or local store.
 - [x] Present a form for user input that provides useful form validation and feedback.
-- [ ] Create a custom directive and use it on at least one of your components.
+- [x] Create a custom directive and use it on at least one of your components.
 - [x] Use a mix of animations and transitions to enhance some aspects of your project.
-- [ ] Connect to a server using HTTP and display retrieved data (use vue-resource or Axios).
+- [x] Connect to a server using HTTP and display retrieved data (use vue-resource or Axios).
 - [x] Provide at least 3 different routes with navigation between them using vue-router.
 - [ ] Manage your application's state using vuex.
 - [x] Structure, document, and deploy your final project code according to common industry practices.
