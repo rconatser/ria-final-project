@@ -12,17 +12,27 @@
     </div>
     <div id="results" class="text-container">
     <h2>Your Selections</h2>
-    
-    </div>
+    <p><strong>Broth:</strong> {{ pickedBroth }}</p>
+    <p><strong>Meat:</strong> {{ pickedMeat }}</p>
+    <p><strong>Toppings:</strong></p>
+    <ul>
+      <li v-for="(checkedTopping, index) in checkedToppings" :item="checkedTopping" :key="index">{{ checkedTopping }}
+      </li>
+    </ul>
+  </div>
   </v-content>
 </template>
 
 <script>
-// import formInfo from './Order';
+//import Order from './Order.vue';
 
 export default {
-
-
+props: ['pickedBroth', 'pickedMeat', 'checkedToppings'],
+  data() {
+      return {
+        
+      }
+  },
 };
 </script>
 
