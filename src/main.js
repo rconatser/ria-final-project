@@ -9,6 +9,23 @@ import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loade
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+// Custom Directives
+Vue.directive('pulse', {
+  bind(el){
+    el.style.boxShadow = "0 0 0 rgba(0,0,0,.2)";
+    el.animate([
+      // keyframes
+      { boxShadow: '0 0 0 rgba(0,0,0,.3)' }, 
+      { boxShadow: '0 0 0 5px rgba(0,0,0,.3)' },
+      { boxShadow: '0 0 0 10px rgba(0,0,0,0)' }
+    ], { 
+      // timing options
+      duration: 3000,
+      iterations: Infinity
+    });
+  }
+});
+
 Vue.http.options.root = 'https://ramen-ingredients.firebaseio.com/ramen-ingredients.json';
 
 const router = new VueRouter({

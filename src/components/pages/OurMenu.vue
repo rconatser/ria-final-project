@@ -12,7 +12,6 @@
         <div class="text-container">
             <h2>Our Food</h2>
             <p>Where possible, our food items are locally and organically sourced.</p>
-            <p><em>List of all food items with their images (See 'Order' page), and when user selects one it will open a lightbox with nutrition information about that item.</em></p>
         </div>
         <div class="section grey lighten-3">
         <div class="text-container">

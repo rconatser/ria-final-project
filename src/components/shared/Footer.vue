@@ -30,11 +30,17 @@
           &copy; {{ new Date().getFullYear() }} — Rachel Conatser
         </v-card-actions>
       </v-card>
+      <sticky-btn />
     </v-footer>
 </template>
 
 <script>
+import StickyButton from './StickyButton';
+
 export default {
+  components: {
+    'sticky-btn': StickyButton
+  },
 
   data: () => ({
     icons: { // parent
