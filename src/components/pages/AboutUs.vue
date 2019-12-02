@@ -19,12 +19,35 @@
             </div>
           </v-card>
         </div>
+        <div class="text-container pa-4 v-lazy"> <!-- USING VUEX / Central Store / State -->
+          <h2 class="pt-4 pb-4">Meet Our Staff</h2>
+<ul>
+<li v-for="member in members" :key="member">
+<span class="name">{{ member.name }}</span>,
+<span class="position"> {{ member.position }}</span>,
+<span class="content"> {{ member.cell }}</span>
+</li>
+</ul>
+
+          <!-- <div class="d-flex">
+            <v-card v-for="member in members" :key="member" max-width="200px">
+            <v-img :src="member.image" max-height="100px"></v-img>
+            <v-card-title class="name">{{ member.name }}</v-card-title>
+            <v-card-subtitle class="position">{{ member.position }}</v-card-subtitle>
+            <v-card-text class="content">{{ member.cell }}</v-card-text>
+          </v-card>
+          </div> -->
+        </div> 
     </v-content>
 </template>
 
 <script>
 export default {
-
+  computed: {
+    members(){ // BROKEN???
+      return this.$staff.state.members;
+    }
+  }
 }
 </script>
 

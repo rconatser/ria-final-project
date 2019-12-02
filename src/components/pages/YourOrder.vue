@@ -16,8 +16,8 @@
     <p><strong>Meat:</strong> {{ pickedMeat }}</p>
     <p><strong>Toppings:</strong></p>
     <ul>
-      <li v-for="(checkedTopping, index) in checkedToppings" :item="checkedTopping" :key="index">{{ checkedTopping }}
-      </li>
+      <!-- <li v-for="(checkedTopping, index) in checkedToppings" :item="checkedTopping" :key="index">{{ checkedTopping }}
+      </li> -->
     </ul>
   </div>
   </v-content>

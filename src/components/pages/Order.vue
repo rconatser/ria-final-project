@@ -183,12 +183,13 @@
 
 <script>
 export default {
- el: '#order',
-data() {
-  pickedBroth = '',
-  pickedMeat = '',
-  checkedToppings = []
- },
+  data() {
+    return { // BROKEN???
+      // pickedBroth = '',
+      // pickedMeat = '',
+      // checkedToppings = []
+    }
+  },
   methods: {
     orderValues() {
       this.$router.push("/review");

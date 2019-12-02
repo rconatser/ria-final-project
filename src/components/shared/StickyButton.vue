@@ -66,8 +66,12 @@
 </script>
 
 <style>
+
+@media only screen and (min-width: 1200px){
     .v-speed-dial {
         margin-bottom: 100px;
         margin-right: 50px;
     }
+
+}
 </style>

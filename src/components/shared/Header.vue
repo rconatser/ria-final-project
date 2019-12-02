@@ -13,49 +13,49 @@
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
-      <v-navigation-drawer v-model="drawer" app fixed right temporary>
-        <v-list nav dense>
-          <v-list-item-group active-class="blue-grey--text" v-model="group">
-            <v-list-item>
-              <router-link v-ripple to="/home">Home</router-link>
-            </v-list-item>
-            <v-list-item>
-              <router-link v-ripple to="/menu">Our Menu</router-link>
-            </v-list-item>
-            <v-list-item>
-              <router-link v-ripple to="/order">Order</router-link>
-            </v-list-item>
-            <v-list-item>
-              <router-link v-ripple to="/contact">Contact Us</router-link>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-      </v-navigation-drawer>
+    <v-navigation-drawer v-model="drawer" app fixed right temporary>
+      <v-list nav dense>
+        <v-list-item-group active-class="blue-grey--text" v-model="group">
+          <router-link v-ripple to="/home">
+            <v-list-item>Home</v-list-item>
+          </router-link>
+          <router-link v-ripple to="/menu">
+            <v-list-item>Our Menu</v-list-item>
+          </router-link>
+          <router-link v-ripple to="/order">
+            <v-list-item>Order</v-list-item>
+          </router-link>
+          <router-link v-ripple to="/contact">
+            <v-list-item>Contact Us</v-list-item>
+          </router-link>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
   </div>
 </template>
 
 <script>
-export default {
-  data: () => ({
-    drawer: false,
-    group: null,
-    watch: {
-      group() {
-        this.drawer = false;
+  export default {
+    data: () => ({
+      drawer: false,
+      group: null,
+      watch: {
+        group() {
+          this.drawer = false;
+        }
       }
-    }
-  })
-};
+    })
+  };
 </script>
 <style scoped>
-a {
-  text-decoration: none !important;
-  color: black !important;
-  transition: 0.3s;
-}
+  a {
+    text-decoration: none !important;
+    color: black !important;
+    transition: 0.3s;
+  }
 
-a:hover {
-  color: #ca8f47 !important;
-  transition: 0.3s;
-}
+  a:hover {
+    color: #ca8f47 !important;
+    transition: 0.3s;
+  }
 </style>
