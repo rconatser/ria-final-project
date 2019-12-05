@@ -18,7 +18,6 @@
           <h2 class="text-center">Our Ingredients and their Nutrition Information</h2>
           <ul>
             <li v-for="ingredient in ingredients" :key="ingredient">
-              <!-- <img :src="ingredient.image" :alt="'Image of ' + ingredient.key" height="100px" width="100px" /> -->
               <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                 <div class="flip-card">
                 <div class="card-front">
@@ -75,9 +74,22 @@ export default {
     .catch(error => console.error(error))
   }
 }
+
 </script>
 
 <style scoped>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
   div.text-container {
     min-width: 360px;
     max-width: 1200px;

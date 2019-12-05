@@ -20,34 +20,24 @@
           </v-card>
         </div>
         <div class="text-container pa-4 v-lazy"> <!-- USING VUEX / Central Store / State -->
-          <h2 class="pt-4 pb-4">Meet Our Staff</h2>
-<ul>
-<li v-for="member in members" :key="member">
-<span class="name">{{ member.name }}</span>,
-<span class="position"> {{ member.position }}</span>,
-<span class="content"> {{ member.cell }}</span>
-</li>
-</ul>
-
-          <!-- <div class="d-flex">
-            <v-card v-for="member in members" :key="member" max-width="200px">
-            <v-img :src="member.image" max-height="100px"></v-img>
-            <v-card-title class="name">{{ member.name }}</v-card-title>
+          <h2 class="pt-4 pb-12 text-center">Meet Our Staff</h2>
+          <div class="d-flex staff">
+            <v-card class="card" v-for="member in members" :key="member" max-width="200px">
+            <div class="image" :id="member.bg"></div>
+            <div class="content">
+              <v-card-title class="name">{{ member.name }}</v-card-title>
             <v-card-subtitle class="position">{{ member.position }}</v-card-subtitle>
             <v-card-text class="content">{{ member.cell }}</v-card-text>
+            </div>
           </v-card>
-          </div> -->
+          </div>
         </div> 
     </v-content>
 </template>
 
 <script>
 export default {
-  computed: {
-    members(){ // BROKEN???
-      return this.$staff.state.members;
-    }
-  }
+  props: ['members']
 }
 </script>
 
@@ -65,6 +55,47 @@ export default {
     font-weight: 300;
     font-size: 4rem;
     margin: 0 auto;
+  }
+
+  .staff {
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .staff .card {
+    min-width: 300px;
+    max-width: 100%;
+  }
+
+  .staff div.card .content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .staff div.card .content .v-card__title {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .staff .card div.image {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .staff .card div#woman {
+    background-image: url(./../../assets/staff/woman.jpg);
+  }
+
+  .staff .card div#man-1 {
+    background-image: url(./../../assets/staff/man-1.jpg);
+    background-position: bottom;
+  }
+
+  .staff .card div#man-2 {
+    background-image: url(./../../assets/staff/man-2.jpg);
   }
   
 </style>

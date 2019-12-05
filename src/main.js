@@ -5,7 +5,7 @@ import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router';
 import Routes from './routes';
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
-import{ staff } from './store/store';
+import{ store } from './store/store';
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
@@ -37,7 +37,7 @@ const router = new VueRouter({
 Vue.config.productionTip = false;
 
 new Vue({
-  staff,
+  store,
   vuetify,
   render: h => h(App),
   router: router
