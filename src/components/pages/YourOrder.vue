@@ -11,28 +11,31 @@
       <p class="pt-4"><em>Form results will go here, along with printed nutrition information about selected items</em></p>
     </div>
     <div id="results" class="text-container">
+      <h2>Your Information</h2>
+      <p><strong>Name:</strong> {{ firstName }} {{ lastName }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+
     <h2>Your Selections</h2>
     <p><strong>Broth:</strong> {{ pickedBroth }}</p>
     <p><strong>Meat:</strong> {{ pickedMeat }}</p>
     <p><strong>Toppings:</strong></p>
     <ul>
-      <!-- <li v-for="(checkedTopping, index) in checkedToppings" :item="checkedTopping" :key="index">{{ checkedTopping }}
-      </li> -->
+      <li v-for="(checkedTopping, index) in checkedToppings" :item="checkedTopping" :key="index">{{ checkedTopping }}
+      </li>
     </ul>
   </div>
   </v-content>
 </template>
 
 <script>
-//import Order from './Order.vue';
+// import store from './../../store/store'
 
 export default {
-props: ['pickedBroth', 'pickedMeat', 'checkedToppings'],
-  data() {
-      return {
-        
-      }
-  },
+  computed: {
+    responses() {
+      return this.$store.state.response
+    }
+  }
 };
 </script>
 

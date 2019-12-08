@@ -9,13 +9,13 @@
     <h2>Make Your Ramen</h2>
     <p>Select from the options below to create your custom ramen masterpiece!</p>
 
-    <form id="order" method="POST" @submit.prevent="order()">
+    <form id="order" method="POST" @submit="checkForm" novalidate="true">
       <div class="form-group personal">
         <label>First Name <span class="req">*</span></label>
-        <input type="text" value="" name="firstName" v-model="name" required />
+        <input type="text" value="" name="firstName" v-model="firstName" required />
 
         <label>Last Name <span class="req">*</span></label>
-        <input type="text" value="" name="lastName" v-model="name" required />
+        <input type="text" value="" name="lastName" v-model="lastName" required />
 
         <label>Email <span class="req">*</span></label>
         <input type="email" value="" name="email" v-model="email" required />
@@ -174,12 +174,22 @@
       </div>
       <input v-ripple type="submit" value="Submit Order" />
     </form>
+    <p v-if="errors.length" id="errors" class="red--text">
+    <strong>Please correct the following errors:</strong>
+    <ul>
+      <li v-for="error in errors" :key="error">{{ error }}</li>
+    </ul>
+    </p>
     <p>
       <em>Note: All ramen dishes are served with standard ramen noodles.</em>
     </p>
   </div>
 
   <div id="results" class="text-container">
+    <h2>Your Information</h2>
+      <p><strong>Name:</strong> {{ firstName }} {{ lastName }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+
     <h2>Your Selections</h2>
     <p><strong>Broth:</strong> {{ pickedBroth }}</p>
     <p><strong>Meat:</strong> {{ pickedMeat }}</p>
@@ -193,17 +203,94 @@
 </template>
 
 <script>
+// import store from './../../store/store'
+
 export default {
   data() {
-    return { // BROKEN???
-      // pickedBroth = '',
-      // pickedMeat = '',
-      // checkedToppings = []
+    return {
+      errors: []
+    }
+  },
+  computed: {
+    firstName: {
+      get() {
+        return this.$store.state.response.firstName;
+      },
+      set(value) {
+        this.$store.commit('updateFirstName', value);
+      },
+    },
+    lastName: {
+      get() {
+        return this.$store.state.response.lastName;
+      },
+      set(value) {
+        this.$store.commit('updateLastName', value);
+      },
+    },
+    email: {
+      get() {
+        return this.$store.state.response.email;
+      },
+      set(value) {
+        this.$store.commit('updateEmail', value);
+      },
+    },
+    pickedBroth: {
+      get() {
+        return this.$store.state.response.pickedBroth;
+      },
+      set(value) {
+        this.$store.commit('updateBroth', value);
+      },
+    },
+    pickedMeat: {
+      get() {
+        return this.$store.state.response.pickedMeat;
+      },
+      set(value) {
+        this.$store.commit('updateMeat', value);
+      },
+    },
+    checkedToppings: {
+      get() {
+        return this.$store.state.response.checkedToppings;
+      },
+      set(value) {
+        this.$store.commit('updateToppings', value);
+      },
+    },
+    responses() {
+      return this.$store.state.response
     }
   },
   methods: {
-    order() {
+    submitForm() {
       this.$router.push("/review");
+    },
+  checkForm: function (e) {
+      this.errors = [];
+
+      if (!this.firstName) {
+        this.errors.push("Include your First Name");
+      }
+      if (!this.lastName) {
+        this.errors.push("Include your Last Name");
+      }
+      if (!this.email) {
+        this.errors.push('Include your Email');
+      } else if (!this.validEmail(this.email)) {
+        this.errors.push('Include a Valid Email');
+      }
+      if (!this.errors.length) {
+        return true;
+      }
+
+      e.preventDefault();
+    },
+    validEmail: function (email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
     }
   }
 };
