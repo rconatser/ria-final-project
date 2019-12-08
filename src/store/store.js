@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
         response: {
             pickedBroth: '',
             pickedMeat: '',
-            checkedToppings: []
+            checkedToppings: [],
+            subtotal: ''
         }
     }
 });

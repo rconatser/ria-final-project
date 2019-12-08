@@ -48,9 +48,6 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
-<script>
-document.getElementsByClassName("card-front").includes("Beef").style.backgroundImage = "url('../../assets/food-items/beef-broth.jpg')";
-</script>
 
 <script>
 import axios from 'axios';
@@ -58,7 +55,6 @@ import axios from 'axios';
 export default {  
   data() {
     return {
-      
       ingredients: []
     }
   },
@@ -78,18 +74,6 @@ export default {
 </script>
 
 <style scoped>
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
   div.text-container {
     min-width: 360px;
     max-width: 1200px;
