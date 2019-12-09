@@ -8,7 +8,7 @@ Features a mock Ramen Restaurant website where the restaurant's name is "Fortune
 https://github.com/rconatser/ria-final-project.git
 
 ## Netlify URL (Where Deployed Online)
-https://zealous-shirley-8c8d58.netlify.com
+https://fortune-ramen.netlify.com/
 
 
 # Project Requirements with Code Snippets
