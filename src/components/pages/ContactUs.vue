@@ -5,25 +5,25 @@
         <v-parallax class="title-container" height="500" src="../../assets/ramen-header-2.jpg">
           <h1 class="title-text"><span class="font-weight-bold">Contact </span>Us</h1>
         </v-parallax>
-        <div class="text-container text-center">
+        <div class="text-container pb-0 text-center">
             <h2>Have a question or concern?</h2>
             <p>Call or email us today!</p>
         </div>
-        <div class="text-container contact-info">
-            <div class="group">
-              <v-icon color="red">mdi-phone-outline</v-icon>
-              <p>801-555-8631</p>
-            </div>
+        <div class="text-container pt-0 contact-info">
             <div class="group">
               <v-icon color="red">mdi-email-outline</v-icon>
               <p>info@fortuneramen.com</p>
+            </div>
+            <div class="group">
+              <v-icon color="red">mdi-phone-outline</v-icon>
+              <p>801-555-8631</p>
             </div>
             <div class="group">
               <v-icon color="red">mdi-map-marker</v-icon>
               <p>1283 N University Ave #102<br />Provo, UT 84604</p>
             </div>
         </div>
-        <div class="grey lighten-3">
+        <div class="grey lighten-3 pb-12">
          <div class="text-container pa-4 v-lazy"> <!-- USING VUEX / Central Store / State -->
           <h2 class="pt-4 pb-12 text-center">Meet Our Staff</h2>
           <div class="d-flex staff">
@@ -51,7 +51,7 @@ export default {
   div.text-container {
     min-width: 360px;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 40px 20px;
   }
 
@@ -65,13 +65,14 @@ export default {
 
   .contact-info {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
   }
 
   .contact-info .group {
     text-align: center;
+    padding: 20px 40px;
   }
 
   .contact-info .group .v-icon {

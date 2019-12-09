@@ -1,7 +1,7 @@
 <template>
     <v-content>
-        <div class="text-container">
-            <form ref="form" type="POST">
+     <div class="text-container">
+    <form ref="form" type="POST">
         <!-- Required Text Fields (Name / Email) -->
         <div class="form-group">
             <h3 class="mb-0">Your Information</h3>
@@ -12,6 +12,7 @@
             :counter="12"
             label="First Name"
             required
+            @blur="$v.firstName.$touch()"
             ></v-text-field>
             <v-text-field
             class="text-field"
@@ -20,6 +21,7 @@
             :counter="14"
             label="Last Name"
             required
+            @blur="$v.lastName.$touch()"
             ></v-text-field>
             <v-text-field
             class="text-field"
@@ -27,6 +29,7 @@
             :error-messages="emailErrors"
             label="E-mail"
             required
+            @blur="$v.email.$touch()"
             ></v-text-field>
         </div>
         <div class="form-group">
@@ -39,6 +42,7 @@
             :error-messages="brothErrors"
             label="Choice of Broth"
             required
+            @blur="$v.broth.$touch()"
             ></v-select>
             <!-- Required Meat Choice -->
             <v-select
@@ -48,6 +52,7 @@
             :error-messages="meatErrors"
             label="Choice of Meat"
             required
+            @blur="$v.meat.$touch()"
             ></v-select>
         </div>
         <div class="form-group">
@@ -59,10 +64,8 @@
                 v-model="selectedToppings"
                 v-for="topping in toppings"
                 :key="topping"
-                :error-messages="toppingErrors"
                 :label="topping"
                 :value="topping"
-                required
                 ></v-checkbox>
             </div>
         </div>
@@ -70,6 +73,7 @@
         color="orange darken-4 white--text"
         class="mt-12"
         v-ripple
+        :disabled="$v.$invalid"
         @click="submit"
         >
         Submit Order
@@ -91,8 +95,6 @@
     </div>
     </v-content>
 </template>
-
-<script src="vuelidate/dist/vuelidate.min.js"></script>
 
 <script>
 import { validationMixin } from 'vuelidate'
@@ -129,12 +131,6 @@ import { required, maxLength, email } from 'vuelidate/lib/validators'
       },
 
     computed: {
-      checkboxErrors () {
-        const errors = []
-        if (!this.$v.selectedToppings.$dirty) return errors
-        !this.$v.selectedToppings.checked && errors.push('Select at least One Topping Option')
-        return errors
-      },
       brothErrors () {
         const errors = []
         if (!this.$v.broth.$dirty) return errors
@@ -167,77 +163,19 @@ import { required, maxLength, email } from 'vuelidate/lib/validators'
         !this.$v.email.email && errors.push('Must be valid e-mail')
         !this.$v.email.required && errors.push('E-mail is required')
         return errors
-      },
-    //   firstName: {
-    //     get () {
-    //         return this.$store.state.response.firstName
-    //     },
-    //     set (value) {
-    //         this.$store.dispatch('updateFirstName', value)
-    //     }
-    //   },
-    //   lastName: {
-    //     get () {
-    //         return this.$store.state.response.lastName
-    //     },
-    //     set (value) {
-    //         this.$store.dispatch('updateLastName', value)
-    //     }
-    //   },
-    //   email: {
-    //     get () {
-    //         return this.$store.state.response.email
-    //     },
-    //     set (value) {
-    //         this.$store.dispatch('updateEmail', value)
-    //     }
-    //   },
-    //   broth: {
-    //     get () {
-    //         return this.$store.state.response.broth
-    //     },
-    //     set (value) {
-    //         this.$store.dispatch('updateBroth', value)
-    //     }
-    //   },
-    //   meat: {
-    //     get () {
-    //         return this.$store.state.response.meat
-    //     },
-    //     set (value) {
-    //         this.$store.dispatch('updateMeat', value)
-    //     }
-    //   },
-    //   selectedToppings: {
-    //     get () {
-    //         return this.$store.state.response.toppings
-    //     },
-    //     set (value) {
-    //         this.$store.dispatch('updateToppings', value)
-    //     }
-    //   }
+      }
     },
     methods: {
         submit () {
-            this.$v.$touch();
-            if (this.$v.$invalid) {
-                this.submitStatus = 'ERROR';
-            } else {
-                // do your submit logic here
-                this.submitStatus = 'PENDING';
-                setTimeout(() => {
-                this.submitStatus = 'OK';
-                this.$store.dispatch("updateInfo", {
-                    firstName: this.firstName,
-                    lastName: this.lastName,
-                    email: this.email,
-                    broth: this.broth,
-                    meat: this.meat,
-                    toppings: this.selectedToppings
-                });
-                this.$router.push("/review");
-                }, 500)
-            }
+            this.$store.commit("updateInfo", {
+                firstName: this.firstName,
+                lastName: this.lastName,
+                email: this.email,
+                broth: this.broth,
+                meat: this.meat,
+                toppings: this.selectedToppings
+            });
+            this.$router.push("/review");
         }
     }
 }

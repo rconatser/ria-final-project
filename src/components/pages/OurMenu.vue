@@ -1,12 +1,6 @@
-<!--
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.11/vue.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
--->
-
 <template>
     <v-content class="pt-0">
-        <v-parallax class="title-container" height="500" src='../../assets/food-items/tonkotsu-ramen.jpg' alt='Parallax image of ramen'>
+        <v-parallax class="title-container" height="500" src='./../../assets/tonkotsu-ramen.jpg' alt='Parallax image of ramen'>
           <h1 class="title-text"><span class="font-weight-bold">Our </span>Menu</h1>
         </v-parallax>
         <div class="text-container">
@@ -27,6 +21,7 @@
                 </div>
                 <div class="card-back">
                   <span class="items">
+                    <span class="heading text-center underline">{{ ingredient.key }}</span>
                     <span class="item">{{ ingredient.Calories }} Calories</span>
                     <span class="item">{{ ingredient.Carbs }}g Carbs</span>
                     <span class="item">{{ ingredient.Fat }}g Fat</span>
@@ -60,7 +55,7 @@ export default {
   },
   created() {
     axios.get('https://ramen-ingredients.firebaseio.com/ingredients.json')
-    // Prof Thor Anderson Suggestion:
+    // Gets info and assigns it to ingredients array while catching any errors.
     .then(response => {
         const allIngredients = response.data
         const objectsToArray = Object.entries(allIngredients).map(e => Object.assign(e[1], {key: e[0]}),
@@ -77,7 +72,7 @@ export default {
   div.text-container {
     min-width: 360px;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 40px 20px;
   }
 
@@ -97,6 +92,11 @@ export default {
 
   ul li span.items span {
     display: block;
+  }
+
+  ul li span.heading {
+      font-weight: 700;
+      font-size: 1.25rem;
   }
 
   @media only screen and (min-width: 756px) {
@@ -124,7 +124,7 @@ export default {
 
 .flip-container, .card-front, .card-back {
 	width: 100%;
-  height: 200px;
+  height: 230px;
 }
 
 /* flip speed goes here */

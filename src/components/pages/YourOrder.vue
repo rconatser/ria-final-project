@@ -5,7 +5,7 @@
           <span class="font-weight-bold">Review </span>Your Order
         </h1>
       </v-parallax>
-    <div class="text-container">
+    <div class="text-container pb-0">
       <h2>Your order has been submitted.</h2>
       <p>Please review your order below and let us know if any information is incorrect.</p>
     </div>
@@ -18,7 +18,7 @@
         <p><strong>Broth Choice:</strong> {{ response.broth }}</p>
         <p><strong>Meat Choice:</strong> {{ response.meat }}</p>
         <p><strong>Toppings:</strong>
-        <span v-for="topping in response.toppings" :key="topping" class="topping">{{ topping }} </span></p>
+        <span v-for="topping in response.toppings" :key="topping" class="topping"> {{ topping }}</span></p>
       </div>
     </div>
   </v-content>
@@ -39,7 +39,7 @@ export default {
 div.text-container {
   min-width: 360px;
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 40px 20px;
 }
 

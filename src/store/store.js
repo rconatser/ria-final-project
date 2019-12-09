@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        response: { // Default Response
+        response: { 
             firstName: '',
             lastName: '',
             email: '',
@@ -15,33 +15,14 @@ export const store = new Vuex.Store({
         }
     },
     mutations: {
-        updateInfo: ({
-            commit,
-            state
-        }) => {
-            commit("?", {
-                firstName: state.response.firstName,
-                lastName: state.response.lastName,
-                email: state.response.email,
-                broth: state.response.broth,
-                meat: state.response.meat,
-                toppings: state.response.toppings
-            });
-        }  
-    },
-    actions: {
-        updateInfo: ({
-            commit,
-            state
-        }) => {
-            commit("?", {
-                firstName: state.response.firstName,
-                lastName: state.response.lastName,
-                email: state.response.email,
-                broth: state.response.broth,
-                meat: state.response.meat,
-                toppings: state.response.toppings
-            });
+        updateInfo(state, payload) {
+            state.response.firstName = payload.firstName;
+            state.response.lastName = payload.lastName;
+            state.response.email = payload.email;
+            state.response.broth = payload.broth;
+            state.response.meat = payload.meat;
+            state.response.toppings = payload.toppings;
         }
     }
+
 });

@@ -13,6 +13,7 @@
           color="orange darken-4"
           dark
           fab
+          title="Quick Links"
         >
           <v-icon v-if="fab">mdi-close</v-icon>
           <v-icon v-else>mdi-comment-question</v-icon>
@@ -25,6 +26,7 @@
         dark
         small
         color="cyan darken-1"
+        title="Contact Us"
       >
         <v-icon>mdi-phone</v-icon> <!-- Link to Contact Page (v-pulse is custom directive) -->
       </v-btn>
@@ -36,6 +38,7 @@
         dark
         small
         color="indigo"
+        title="View Our Menu"
       >
         <v-icon>mdi-book-open-page-variant</v-icon> <!-- Link to Ingredients Page (v-pulse is custom directive) -->
       </v-btn>
@@ -47,6 +50,7 @@
         dark
         small
         color="red"
+        title="Order Now"
       >
         <v-icon>mdi-noodles</v-icon> <!-- Link to Order Page (v-pulse is custom directive) -->
       </v-btn>

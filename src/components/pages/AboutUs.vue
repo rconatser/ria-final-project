@@ -11,7 +11,7 @@
         <div class="pa-4 py-12 v-lazy grey lighten-3">
           <v-card max-width="800px" class="mx-auto">
             <v-img height="400px"
-             src="../../assets/food-items/tonkotsu-ramen.jpg" />
+             src="../../assets/food-items/tonkotsu-ramen-1.jpg" />
             <div>
               <v-card-title>Ramen Spotlight</v-card-title>
             <v-card-subtitle class="pl-4">Tonkotsu</v-card-subtitle>
