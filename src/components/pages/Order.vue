@@ -5,15 +5,15 @@
         <span class="font-weight-bold">Order</span>Here
       </h1>
     </v-parallax>
-    <div class="text-container">
-      <h2>Make Your Ramen</h2>
+    <div class="text-container pb-0">
+      <h2 class="pb-4">Make Your Ramen</h2>
       <p>Select from the options below to create your custom ramen masterpiece!</p>
       <p>
         <em>Note: All ramen dishes are served with standard ramen noodles.</em>
       </p>
     </div>
 
-    <div class="text-container pt-0">
+    <div class="pt-0">
       <order-form></order-form>
     </div>
     

@@ -1,6 +1,7 @@
 <template>
     <v-content>
-        <form ref="form" type="POST">
+        <div class="text-container">
+            <form ref="form" type="POST">
         <!-- Required Text Fields (Name / Email) -->
         <div class="form-group">
             <h3 class="mb-0">Your Information</h3>
@@ -11,8 +12,6 @@
             :counter="12"
             label="First Name"
             required
-            @input="$v.firstName.$touch()"
-            @blur="$v.firstName.$touch()"
             ></v-text-field>
             <v-text-field
             class="text-field"
@@ -21,8 +20,6 @@
             :counter="14"
             label="Last Name"
             required
-            @input="$v.lastName.$touch()"
-            @blur="$v.lastName.$touch()"
             ></v-text-field>
             <v-text-field
             class="text-field"
@@ -30,8 +27,6 @@
             :error-messages="emailErrors"
             label="E-mail"
             required
-            @input="$v.email.$touch()"
-            @blur="$v.email.$touch()"
             ></v-text-field>
         </div>
         <div class="form-group">
@@ -44,8 +39,6 @@
             :error-messages="brothErrors"
             label="Choice of Broth"
             required
-            @change="$v.broth.$touch()"
-            @blur="$v.broth.$touch()"
             ></v-select>
             <!-- Required Meat Choice -->
             <v-select
@@ -55,8 +48,6 @@
             :error-messages="meatErrors"
             label="Choice of Meat"
             required
-            @change="$v.meat.$touch()"
-            @blur="$v.meat.$touch()"
             ></v-select>
         </div>
         <div class="form-group">
@@ -72,8 +63,6 @@
                 :label="topping"
                 :value="topping"
                 required
-                @change="$v.topping.$touch()"
-                @blur="$v.topping.$touch()"
                 ></v-checkbox>
             </div>
         </div>
@@ -86,16 +75,20 @@
         Submit Order
         </v-btn>
     </form>
-    <div class="responses">
-        <h2 class="mt-12">Verify Your Submission</h2>
-        <p><strong>First Name:</strong> {{ firstName }}</p>
-        <p><strong>Last Name:</strong> {{ lastName }}</p>
-        <p><strong>Email:</strong> {{ email }}</p>
-        <p><strong>Broth Choice:</strong> {{ broth }}</p>
-        <p><strong>Meat Choice:</strong> {{ meat }}</p>
-        <p><strong>Toppings:</strong>
-        <span v-for="selectedTopping in selectedToppings" :key="selectedTopping" class="topping"> {{ selectedTopping }}</span></p>
-      </div>
+    </div>
+    <div class="grey lighten-3 full-width">
+        <div class="responses text-container">
+            <h2 class="mt-12">Verify Your Submission</h2>
+            <p><strong>First Name:</strong> {{ firstName }}</p>
+            <p><strong>Last Name:</strong> {{ lastName }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Broth Choice:</strong> {{ broth }}</p>
+            <p><strong>Meat Choice:</strong> {{ meat }}</p>
+            <p><strong>Toppings:</strong>
+                <span v-for="selectedTopping in selectedToppings" :key="selectedTopping" class="topping">
+                    {{ selectedTopping }}</span></p>
+        </div>
+    </div>
     </v-content>
 </template>
 
@@ -175,54 +168,54 @@ import { required, maxLength, email } from 'vuelidate/lib/validators'
         !this.$v.email.required && errors.push('E-mail is required')
         return errors
       },
-      firstName: {
-        get () {
-            return this.$store.state.response.firstName
-        },
-        set (value) {
-            this.$store.commit('updateFirstName', value)
-        }
-      },
-      lastName: {
-        get () {
-            return this.$store.state.response.lastName
-        },
-        set (value) {
-            this.$store.commit('updateLastName', value)
-        }
-      },
-      email: {
-        get () {
-            return this.$store.state.response.email
-        },
-        set (value) {
-            this.$store.commit('updateEmail', value)
-        }
-      },
-      broth: {
-        get () {
-            return this.$store.state.response.broth
-        },
-        set (value) {
-            this.$store.commit('updateBroth', value)
-        }
-      },
-      meat: {
-        get () {
-            return this.$store.state.response.meat
-        },
-        set (value) {
-            this.$store.commit('updateMeat', value)
-        }
-      },
-      selectedToppings: {
-        get () {
-            return this.$store.state.response.toppings
-        },
-        set (value) {
-            this.$store.commit('updateToppings', value)
-        }
-      }
+    //   firstName: {
+    //     get () {
+    //         return this.$store.state.response.firstName
+    //     },
+    //     set (value) {
+    //         this.$store.dispatch('updateFirstName', value)
+    //     }
+    //   },
+    //   lastName: {
+    //     get () {
+    //         return this.$store.state.response.lastName
+    //     },
+    //     set (value) {
+    //         this.$store.dispatch('updateLastName', value)
+    //     }
+    //   },
+    //   email: {
+    //     get () {
+    //         return this.$store.state.response.email
+    //     },
+    //     set (value) {
+    //         this.$store.dispatch('updateEmail', value)
+    //     }
+    //   },
+    //   broth: {
+    //     get () {
+    //         return this.$store.state.response.broth
+    //     },
+    //     set (value) {
+    //         this.$store.dispatch('updateBroth', value)
+    //     }
+    //   },
+    //   meat: {
+    //     get () {
+    //         return this.$store.state.response.meat
+    //     },
+    //     set (value) {
+    //         this.$store.dispatch('updateMeat', value)
+    //     }
+    //   },
+    //   selectedToppings: {
+    //     get () {
+    //         return this.$store.state.response.toppings
+    //     },
+    //     set (value) {
+    //         this.$store.dispatch('updateToppings', value)
+    //     }
+    //   }
     },
     methods: {
         submit () {
@@ -234,12 +227,14 @@ import { required, maxLength, email } from 'vuelidate/lib/validators'
                 this.submitStatus = 'PENDING';
                 setTimeout(() => {
                 this.submitStatus = 'OK';
-                console.log(this.$store.state.response.firstName);
-                console.log(this.$store.state.response.lastName);
-                console.log(this.$store.state.response.email);
-                console.log(this.$store.state.response.broth);
-                console.log(this.$store.state.response.meat);
-                console.log(this.$store.state.response.toppings);
+                this.$store.dispatch("updateInfo", {
+                    firstName: this.firstName,
+                    lastName: this.lastName,
+                    email: this.email,
+                    broth: this.broth,
+                    meat: this.meat,
+                    toppings: this.selectedToppings
+                });
                 this.$router.push("/review");
                 }, 500)
             }
@@ -272,6 +267,21 @@ span.topping:after {
 
 span.topping:last-of-type:after {
 content: '';
+}
+
+.full-width {
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.text-container {
+    min-width: 360px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px 40px;
 }
 
 @media only screen and (min-width: 768px) {

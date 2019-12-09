@@ -8,7 +8,6 @@
     <div class="text-container">
       <h2>Your order has been submitted.</h2>
       <p>Please review your order below and let us know if any information is incorrect.</p>
-      <p class="pt-4"><em>Form results will go here, along with printed nutrition information about selected items</em></p>
     </div>
    <div class="text-container pt-0">
       <div class="responses">
