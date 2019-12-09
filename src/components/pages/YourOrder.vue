@@ -10,33 +10,30 @@
       <p>Please review your order below and let us know if any information is incorrect.</p>
       <p class="pt-4"><em>Form results will go here, along with printed nutrition information about selected items</em></p>
     </div>
-    <div id="results" class="text-container">
-      <h2>Your Information</h2>
-      <p><strong>Name:</strong> {{ firstName }} {{ lastName }}</p>
-      <p><strong>Email:</strong> {{ email }}</p>
-
-    <h2>Your Selections</h2>
-    <p><strong>Broth:</strong> {{ pickedBroth }}</p>
-    <p><strong>Meat:</strong> {{ pickedMeat }}</p>
-    <p><strong>Toppings:</strong></p>
-    <ul>
-      <li v-for="(checkedTopping, index) in checkedToppings" :item="checkedTopping" :key="index">{{ checkedTopping }}
-      </li>
-    </ul>
-  </div>
+   <div class="text-container pt-0">
+      <div class="responses">
+        <h2 class="mt-12">Your Submission</h2>
+        <p><strong>First Name:</strong> {{ response.firstName }}</p>
+        <p><strong>Last Name:</strong> {{ response.lastName }}</p>
+        <p><strong>Email:</strong> {{ response.email }}</p>
+        <p><strong>Broth Choice:</strong> {{ response.broth }}</p>
+        <p><strong>Meat Choice:</strong> {{ response.meat }}</p>
+        <p><strong>Toppings:</strong>
+        <span v-for="topping in response.toppings" :key="topping" class="topping">{{ topping }} </span></p>
+      </div>
+    </div>
   </v-content>
 </template>
 
 <script>
-// import store from './../../store/store'
-
 export default {
-  computed: {
-    responses() {
-      return this.$store.state.response
+  data() {
+    return {
+        response: this.$store.state.response,
+        toppings: this.$store.state.response.toppings
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -54,4 +51,12 @@ h1.title-text {
   font-size: 4rem;
   margin: 0 auto;
 }
+
+span.topping:after {
+    content: ', ';
+  }
+
+  span.topping:last-of-type:after {
+    content: '';
+  }
 </style>

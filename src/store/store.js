@@ -5,34 +5,73 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        response: {
-            pickedBroth: '',
-            pickedMeat: '',
-            checkedToppings: [],
-            subtotal: '',
+        response: { // Default Response
             firstName: '',
             lastName: '',
-            email: ''
+            email: '',
+            broth: '',
+            meat: '',
+            toppings: []
+        }
+    },
+    getters: {
+        firstName: state => {
+            return state.response.firstName;
+        },
+        lastName: state => {
+            return state.response.lastName;
+        },
+        email: state => {
+            return state.response.email;
+        },
+        broth: state => {
+            return state.response.broth;
+        },
+        meat: state => {
+            return state.response.meat;
+        },
+        toppings: state => {
+            return state.response.toppings;
         }
     },
     mutations: {
-        updateFirstName (state, firstName) {
-          state.obj.firstName = firstName
+        updateFirstName: (state, payload) => {
+            state.response.firstName = payload;
         },
-        updateLastName (state, lastName) {
-            state.obj.lastName = lastName
+        updateLastName: (state, payload) => {
+            state.response.lastName = payload;
         },
-        updateEmail (state, email) {
-            state.obj.email = email
+        updateEmail: (state, payload) => {
+            state.response.email = payload;
         },
-        updateBroth (state, pickedBroth) {
-            state.obj.pickedBroth = pickedBroth
+        updateBroth: (state, payload) => {
+            state.response.broth = payload;
         },
-        updateMeat (state, pickedMeat) {
-            state.obj.pickedMeat = pickedMeat
+        updateMeat: (state, payload)  => {
+            state.response.meat = payload;
         },
-        updateToppings (state, checkedToppings) {
-            state.obj.checkedToppings = checkedToppings
+        updateToppings: (state, payload) => {
+            state.response.toppings = payload;
+        }       
+    },
+    actions: {
+        updateFirstName: ({commit}, payload) => {
+            commit('updateFirstName', payload);
+        },
+        updateLastName: ({commit}, payload) => {
+            commit('updateLastName', payload);
+        },
+        updateEmail: ({commit}, payload) => {
+            commit('updateEmail', payload);
+        },
+        updateBroth: ({commit}, payload) => {
+            commit('updateBroth', payload);
+        },
+        updateMeat: ({commit}, payload) => {
+            commit('updateMeat', payload);
+        },
+        updateToppings: ({commit}, payload) => {
+            commit('updateToppings', payload);
         }
-      }
+    }
 });

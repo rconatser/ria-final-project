@@ -6,7 +6,9 @@ import VueRouter from 'vue-router';
 import Routes from './routes';
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
 import{ store } from './store/store';
+import Vuelidate from 'vuelidate';
 
+Vue.use(Vuelidate);
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
@@ -37,8 +39,9 @@ const router = new VueRouter({
 Vue.config.productionTip = false;
 
 new Vue({
-  store,
-  vuetify,
   render: h => h(App),
-  router: router
+  router,
+  store,
+  Vuelidate,
+  vuetify
 }).$mount('#app')
