@@ -14,6 +14,10 @@ https://zealous-shirley-8c8d58.netlify.com
 
 # Project Requirements with Code Snippets
 ### Conditional logic and array methods render large lists
+Seen in "OurMenu.vue"
+
+<details><summary>Snippet</summary>
+
 ```HTML
 <!-- Renders list of 24 items from Firebase -->
 <!-- Seen in OurMenu.vue -->
@@ -36,10 +40,15 @@ https://zealous-shirley-8c8d58.netlify.com
     <!-- ..... -->
 </li>
 ```
+</details>
 
 ---
 
 ### Code encapsulated as single-file components
+Seen in "App.vue"
+
+<details><summary>Snippet</summary>
+
 ```HTML
 <!-- All pages are single file components potentially utilizing other components -->
 <!-- Seen in App.vue -->
@@ -55,10 +64,14 @@ https://zealous-shirley-8c8d58.netlify.com
   </v-app>
 </template>
 ```
+</details>
 
 ---
 
 ### Code created and managed with real development tools
+Seen in "main.js"
+<details><summary>Snippet</summary>
+
 ```Javascript
 //... Seen in main.js
 // Utilized all of these tools in at least one location
@@ -72,6 +85,7 @@ import{ store } from './store/store';
 import Vuelidate from 'vuelidate';
 //...
 ```
+</details>
 
 ---
 
@@ -82,6 +96,9 @@ https://github.com/rconatser/ria-final-project.git
 ---
 
 ### Component communication
+Seen in "App.vue"
+<details><summary>Snippet</summary>
+
 ```Javascript
 //... Seen in App.vue
 members: [
@@ -97,10 +114,15 @@ export default {
   props: ['members']
 }
 ```
+</details>
 
 ---
 
 ### User input form with validation
+Seen in "Form.vue"
+
+<details><summary>Snippet</summary>
+
 ```HTML
  <!-- ...Seen in Form.vue  -->
     <form ref="form" type="POST">
@@ -182,6 +204,7 @@ export default {
         </v-btn>
     </form>
 ```
+
 ```Javascript
 //... Seen in Form.vue
 // Validation information utilizing Vuelidate as a resource
@@ -198,10 +221,15 @@ export default {
       },
     },
 ```
+</details>
 
 ---
 
 ### Custom directive developed and used
+Seen in "Main.js"
+
+<details><summary>Snippet</summary>
+
 ```Javascript
 //... Seen in main.js
 // Custom Directive, creates pulsing border on buttons, as seen on the Sticky Button located on all pages
@@ -221,20 +249,30 @@ Vue.directive('pulse', {
   }
 });
 ```
+</details>
 
 ---
 
 ### Animation(s) and transition(s) used
+Seen in "App.vue"
+
+<details><summary>Snippet</summary>
+
 ```HTML
 <!-- ... Seen in App.vue  -->
 <transition name="router-anim" enter-active-class="animated fadeInUp" leave-active-class="animated slideOutRight">
         <!-- ... -->
 </transition>
 ```
+</details>
 
 ---
 
 ### At least 3 Routes provided
+Seen in "Routes.js"
+
+<details><summary>Snippet</summary>
+
 ```Javascript
 //... Seen in routes.js
     { path: '', component: AboutUs},
@@ -245,10 +283,15 @@ Vue.directive('pulse', {
     { path: '/review', component: YourOrder }
 //...
 ```
+</details>
 
 ---
 
 ### State managed using Vuex
+Seen in "Store/Store.js"
+
+<details><summary>Snippet</summary>
+
 ```Javascript
 //... Seen in store/store.js
 Vuex.Store({
@@ -265,10 +308,15 @@ Vuex.Store({
 //... 
 )};
 ```
+</details>
 
 ---
 
 ### Utilized Firebase for HTTP Request
+Seen in "OurMenu.vue"
+
+<details><summary>Snippet</summary>
+
 ```Javascript
     axios.get('https://ramen-ingredients.firebaseio.com/ingredients.json')
     // Gets info and assigns it to ingredients array while catching any errors.
@@ -279,6 +327,7 @@ Vuex.Store({
         this.ingredients = objectsToArray;
     }) //...
 ```
+</details>
 
 ---
 
