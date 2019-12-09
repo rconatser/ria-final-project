@@ -10,7 +10,6 @@ https://github.com/rconatser/ria-final-project.git
 ## Netlify URL (Where Deployed Online)
 https://zealous-shirley-8c8d58.netlify.com
 
----
 
 # Project Requirements with Code Snippets
 ### Conditional logic and array methods render large lists
@@ -69,7 +68,7 @@ Seen in "App.vue"
 ---
 
 ### Code created and managed with real development tools
-Seen in "main.js"
+Seen in "Main.js"
 <details><summary>Snippet</summary>
 
 ```Javascript
